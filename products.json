@@ -1,0 +1,786 @@
+{
+  "x-generator": "NSwag v13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v12.0.0.0))",
+  "swagger": "2.0",
+  "info": {
+    "title": "Azure Functions Products",
+    "description": "This is the documentation for Azure Functions.Products",
+    "version": "1.0.0"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/Availability": {
+      "post": {
+        "tags": [
+          "Availability"
+        ],
+        "operationId": "Availability_Availability",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/ItemAvailabilityChange/{startDate}": {
+      "get": {
+        "tags": [
+          "Availability"
+        ],
+        "operationId": "Availability_ItemAvailabilityChange",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/ValidateItemAvailability": {
+      "post": {
+        "tags": [
+          "Availability"
+        ],
+        "operationId": "Availability_ValidateItemAvailability",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/BuildActiveItems": {
+      "post": {
+        "tags": [
+          "Catalog"
+        ],
+        "operationId": "Catalog_BuildActiveItems",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/catalog": {
+      "get": {
+        "tags": [
+          "Catalog"
+        ],
+        "operationId": "Catalog_Catalog",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/ColorRecommendation": {
+      "post": {
+        "tags": [
+          "ColorRecommendation"
+        ],
+        "operationId": "ColorRecommendation_ColorRecommendation",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/ConvertItemCodes": {
+      "post": {
+        "tags": [
+          "ItemCodes"
+        ],
+        "operationId": "ItemCodes_ConvertItemCodes",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/priceSheet": {
+      "post": {
+        "tags": [
+          "PriceSheets"
+        ],
+        "operationId": "PriceSheets_PriceSheet",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/GetBatchPricing": {
+      "post": {
+        "tags": [
+          "Pricing"
+        ],
+        "operationId": "Pricing_GetBatchPricing",
+        "parameters": [
+          {
+            "name": "Pricing Request",
+            "in": "body",
+            "required": true,
+            "description": "Body Request to get pricing Information",
+            "schema": {
+              "$ref": "#/definitions/PricingRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PricingResponse"
+              }
+            }
+          },
+          "401": {
+            "x-nullable": false,
+            "description": "Unauthorized",
+            "schema": {}
+          },
+          "400": {
+            "x-nullable": false,
+            "description": "Bad Request, parameters are missing",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/GetPricing": {
+      "post": {
+        "tags": [
+          "Pricing"
+        ],
+        "operationId": "Pricing_GetPricing",
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PricingRequest"
+            },
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "byPassCache",
+            "in": "query",
+            "description": "To indicate if request should go to cache or not: Y | N",
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "byPassItemValidation",
+            "in": "query",
+            "description": "To indicate if item should be validated or not: Y | N",
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PricingResponse"
+              }
+            }
+          },
+          "401": {
+            "x-nullable": false,
+            "description": "Unauthorized",
+            "schema": {}
+          },
+          "400": {
+            "x-nullable": false,
+            "description": "Bad Request, paramters missing",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/PricingInternal": {
+      "post": {
+        "tags": [
+          "Pricing"
+        ],
+        "operationId": "Pricing_GetPricingInternal",
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PricingRequest"
+            },
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "byPassCache",
+            "in": "query",
+            "description": "To indicate if request should go to cache or not: Y | N",
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "byPassItemValidation",
+            "in": "query",
+            "description": "To indicate if item should be validated or not: Y | N",
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PricingResponse"
+              }
+            }
+          },
+          "401": {
+            "x-nullable": false,
+            "description": "Unauthorized",
+            "schema": {}
+          },
+          "400": {
+            "x-nullable": false,
+            "description": "Bad Request, paramters missing",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/ProductTemplateMapping": {
+      "get": {
+        "tags": [
+          "ProductTemplateMapping"
+        ],
+        "operationId": "ProductTemplateMapping_ProductTemplateMapping",
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductTemplateCategory"
+            }
+          }
+        }
+      }
+    },
+    "/api/branch/{branchCd}": {
+      "get": {
+        "tags": [
+          "ProductSearch"
+        ],
+        "operationId": "ProductSearch_SearchBranchProducts",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "branchCd",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/SearchProducts": {
+      "get": {
+        "tags": [
+          "ProductSearch"
+        ],
+        "operationId": "ProductSearch_SearchProducts",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "category",
+            "in": "query",
+            "description": "Product Category",
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "branchCode",
+            "in": "query",
+            "description": "Product Branch Code",
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "customerCode",
+            "in": "query",
+            "description": "Product Customer Code",
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductSearchResults"
+            }
+          },
+          "401": {
+            "x-nullable": false,
+            "description": "Unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/api/UOMConversion/{itemCode}": {
+      "get": {
+        "tags": [
+          "UOMConversion"
+        ],
+        "operationId": "UOMConversion_UOMConversion",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "itemCode",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/UOMConversion": {
+      "post": {
+        "tags": [
+          "UOMConversion"
+        ],
+        "operationId": "UOMConversion_UOMConversionV2",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/UOMExtract": {
+      "get": {
+        "tags": [
+          "UOMExtract"
+        ],
+        "operationId": "UOMExtract_UOMExtract",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PricingResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/PricingResponseBasic"
+        },
+        {
+          "type": "object",
+          "required": [
+            "AvailableQuantity",
+            "Stock",
+            "MinPackQuantity",
+            "OrderQuantity"
+          ],
+          "properties": {
+            "AvailableQuantity": {
+              "type": "number",
+              "format": "double"
+            },
+            "OnHandQty": {
+              "type": "number",
+              "format": "double"
+            },
+            "Stock": {
+              "type": "boolean"
+            },
+            "MinPackQuantity": {
+              "type": "number",
+              "format": "decimal"
+            },
+            "OrderQuantity": {
+              "type": "number",
+              "format": "decimal"
+            }
+          }
+        }
+      ]
+    },
+    "PricingResponseBasic": {
+      "type": "object",
+      "required": [
+        "Price",
+        "MessageCode"
+      ],
+      "properties": {
+        "RequestedItemCode": {
+          "type": "string"
+        },
+        "RequestedOption": {
+          "type": "string"
+        },
+        "RequestedUOM": {
+          "type": "string"
+        },
+        "ItemCode": {
+          "type": "string"
+        },
+        "Price": {
+          "type": "number",
+          "format": "double"
+        },
+        "PriceUOM": {
+          "type": "string"
+        },
+        "UOMConversionFactor": {
+          "type": "number",
+          "format": "decimal"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "MessageCode": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/ErrorCodeEnum"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ErrorDetail"
+          }
+        }
+      }
+    },
+    "ErrorCodeEnum": {
+      "type": "integer",
+      "description": "",
+      "x-enumNames": [
+        "Http400",
+        "Http401",
+        "Http404",
+        "Http500",
+        "GeneralError",
+        "FieldsMissingFromRequestBody",
+        "InvalidCustomerIdentifier",
+        "InvalidBranchIdentifier",
+        "DependentServiceUnavailable",
+        "Products_GeneralError",
+        "Products_AvailabilityLookupFailed",
+        "Orders_GeneralError",
+        "Orders_SubmitOrderRequestInvalid",
+        "Customers_GeneralError",
+        "Customers_APTrends_Error",
+        "Customers_Validate_Error",
+        "Customers_SmartTemplate_Error",
+        "Invoices_GeneralError",
+        "Invoices_Invoices_Error",
+        "Invoices_InvoiceList_Error"
+      ],
+      "enum": [
+        400,
+        401,
+        404,
+        500,
+        1000,
+        1001,
+        1002,
+        1003,
+        1004,
+        2000,
+        2001,
+        3000,
+        3001,
+        4000,
+        4001,
+        4002,
+        4003,
+        5000,
+        5001,
+        5002
+      ]
+    },
+    "ErrorDetail": {
+      "type": "object",
+      "properties": {
+        "Domain": {
+          "type": "string"
+        },
+        "Reason": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "LocationType": {
+          "type": "string"
+        },
+        "Location": {
+          "type": "string"
+        },
+        "ExtendedHelp": {
+          "type": "string"
+        }
+      }
+    },
+    "PricingRequest": {
+      "type": "object",
+      "required": [
+        "ShipToSequenceNumber"
+      ],
+      "properties": {
+        "SourceSystem": {
+          "type": "string"
+        },
+        "CustomerId": {
+          "type": "string"
+        },
+        "ShipToSequenceNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "BranchCode": {
+          "type": "string"
+        },
+        "EffectiveDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "SaleType": {
+          "type": "string"
+        },
+        "ItemCodeList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PricingItem"
+          }
+        }
+      }
+    },
+    "PricingItem": {
+      "type": "object",
+      "required": [
+        "Quantity"
+      ],
+      "properties": {
+        "ItemCode": {
+          "type": "string"
+        },
+        "RequestedItemCode": {
+          "type": "string"
+        },
+        "Option": {
+          "type": "string"
+        },
+        "Quantity": {
+          "type": "number",
+          "format": "decimal"
+        },
+        "UOM": {
+          "type": "string"
+        }
+      }
+    },
+    "ProductTemplateCategory": {
+      "type": "object",
+      "required": [
+        "Modified"
+      ],
+      "properties": {
+        "ItemCode": {
+          "type": "string"
+        },
+        "Category": {
+          "type": "string"
+        },
+        "Modified": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ProductSearchResults": {
+      "type": "object",
+      "required": [
+        "TotalCount"
+      ],
+      "properties": {
+        "TotalCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductSearchResult"
+          }
+        }
+      }
+    },
+    "ProductSearchResult": {
+      "type": "object",
+      "properties": {
+        "ItemKey": {
+          "type": "string"
+        },
+        "ItemCode": {
+          "type": "string"
+        },
+        "ItemDescription": {
+          "type": "string"
+        },
+        "PriceSheetCategory": {
+          "type": "string"
+        },
+        "ProductCategory": {
+          "type": "string"
+        },
+        "ProductCategoryDisplayName": {
+          "type": "string"
+        },
+        "Manufacturer": {
+          "type": "string"
+        },
+        "ItemColors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "OrderUnitOfMeasure": {
+          "type": "string"
+        },
+        "AlternateOrderUnitOfMeasure": {
+          "type": "string"
+        },
+        "PopularItem": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "description": "Generate: Bearer {token}",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "Bearer": [
+        "ALL"
+      ]
+    }
+  ]
+}
